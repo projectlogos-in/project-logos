@@ -155,7 +155,7 @@ document.querySelectorAll(".included").forEach((ul) => {
 document.addEventListener("click", (e) => {
   const t = e.target.closest(".included-toggle");
   if (!t) return;
-  const card = t.closest(".subservice");
+  const card = t.closest(".subservice, .bundle-card");
   const open = card.classList.toggle("open");
   t.setAttribute("aria-expanded", open ? "true" : "false");
 });
