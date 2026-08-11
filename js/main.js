@@ -36,7 +36,7 @@ document.body.appendChild(spineProgress);
 const onScroll = () => {
   if (header) header.classList.toggle("scrolled", window.scrollY > 24);
   const max = document.documentElement.scrollHeight - window.innerHeight;
-  spineProgress.style.transform = `scaleY(${max > 0 ? Math.min(1, window.scrollY / max) : 0})`;
+  spineProgress.style.transform = `scaleX(${max > 0 ? Math.min(1, window.scrollY / max) : 0})`;
 };
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
