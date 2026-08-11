@@ -1083,6 +1083,41 @@ section { padding: var(--section) 0; }
 
 /* ---------------- Contact ---------------- */
 
+.email-big {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.3rem, 2.9vw, 2.3rem);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  background: linear-gradient(90deg, var(--indigo), #FF8A5C) no-repeat left bottom / 0 3px;
+  padding-bottom: 8px;
+  transition: background-size 0.5s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s;
+  overflow-wrap: anywhere;
+}
+
+.email-big:hover { color: var(--indigo); background-size: 100% 3px; }
+
+.contact-meta {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--ink-mute);
+}
+
+.contact-meta strong {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--indigo);
+  margin-bottom: 0.35rem;
+  font-weight: 500;
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
