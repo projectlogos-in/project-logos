@@ -133,6 +133,7 @@ h1, h2, h3, .display {
   top: 0;
   z-index: 100;
   background: rgba(19, 18, 16, 0.8);
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--line);
   transition: box-shadow 0.3s ease, background 0.3s ease;
@@ -709,7 +710,7 @@ section { padding: var(--section) 0; }
   counter-reset: stage;
 }
 
-.model .stage { cursor: pointer; position: relative; transition: background 0.3s, transform 0.3s; background: rgba(250, 247, 240, 0.03); backdrop-filter: blur(2px); padding: 2rem 1.5rem 2.25rem; }
+.model .stage { cursor: pointer; position: relative; transition: background 0.3s, transform 0.3s; background: rgba(250, 247, 240, 0.03); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); padding: 2rem 1.5rem 2.25rem; }
 
 .model .stage:hover, .model .stage.open { background: rgba(250, 247, 240, 0.08); }
 .model .stage:hover { transform: translateY(-3px); }

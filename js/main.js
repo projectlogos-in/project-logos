@@ -6,14 +6,22 @@ if (toggle && nav) {
 }
 
 // Theme toggle — dark is the default; choice persists
-document.querySelectorAll(".theme-toggle").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
-    if (next === "light") document.documentElement.dataset.theme = "light";
-    else delete document.documentElement.dataset.theme;
-    try { localStorage.setItem("pl-theme", next); } catch (e) {}
-    window.dispatchEvent(new Event("pl-theme"));
-  });
+const applyThemeColor = () => {
+  let m = document.querySelector('meta[name="theme-color"]');
+  if (!m) { m = document.createElement("meta"); m.name = "theme-color"; document.head.appendChild(m); }
+  m.content = document.documentElement.dataset.theme === "light" ? "#F6F2E8" : "#131210";
+};
+applyThemeColor();
+
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".theme-toggle");
+  if (!btn) return;
+  const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+  if (next === "light") document.documentElement.dataset.theme = "light";
+  else delete document.documentElement.dataset.theme;
+  try { localStorage.setItem("pl-theme", next); } catch (err) {}
+  applyThemeColor();
+  window.dispatchEvent(new Event("pl-theme"));
 });
 
 // Staggered grids — children rise one after another
