@@ -82,9 +82,8 @@ homepage/work-page tracker visuals are captured from the local build.
 
 ## To do before launch
 
-- [ ] Register domain and replace interim contact email (`javed.ali12123@gmail.com`)
+- [ ] Point the projectlogos.co domain at the site (email already set to ceo@projectlogos.co)
 - [ ] Confirm with the documented civil-society organisation before publishing their
       data/branding on a commercial portfolio site (sensitive-info review, deferred)
 - [ ] Add real photography (Md Meharban's work) and case-study imagery
-- [ ] OG images + favicon (use the logo mark in `css/style.css` / this README)
 - [ ] Confirm the "ten engagements" framing and stats with all three principals
