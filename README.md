@@ -80,6 +80,19 @@ selectors; the data explorer re-ramps its choropleth on theme change.
 - **Case-study filters** by practice (work page).
 - All vanilla JS, no dependencies; respects `prefers-reduced-motion`.
 
+## Abid Faheem work samples
+
+`assets/abid/` holds covers and sample pages rendered from the work samples on
+faheemfreelancing.in (his public consulting portfolio): Girl Power Project M&E
+reports (PankhRise Foundation), UNICEF-supported nutrition module (Unnati
+Sansthan), Hindi malnutrition explainer, weak-newborn study, minority-managed
+higher-education study, positive-parenting module, Premanu Foundation profile,
+and a MAXQDA code-matrix method sample. His photo deliberately not used. Peer-
+reviewed articles linked by DOI (Social Science & Medicine 2026; Sexual and
+Reproductive Health Matters 2021). Surfaced on: work (3 shelf cases), studio
+(method-desk artifact row + enriched bio), home (2 publication covers),
+services (peer-review proof line in Chapter A).
+
 ## Artifact imagery
 
 `assets/work/` holds real artifact images: report covers rendered from source PDFs

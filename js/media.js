@@ -12,6 +12,15 @@
     "iai-curriculum": { title: "Curriculum Compendium — designed edition", pages: ["assets/work/iai-curriculum.png"] },
     "campaign-report": { title: "Campaign report with audited statistics", pages: ["assets/work/campaign-report.png"] },
     "nous-portfolio": { title: "Institutional portfolio", pages: ["assets/work/nous-portfolio.png"] },
+    "gpp-2425": { title: "Girl Power Project — pre/post-intervention evaluation, 2024-25", pages: ["assets/abid/gpp2425-1.jpg", "assets/abid/gpp2425-2.jpg", "assets/abid/gpp2425-3.jpg"] },
+    "gpp-2324": { title: "Girl Power Project — annual M&E report, 2023-24", pages: ["assets/abid/gpp2324-1.jpg"] },
+    "nutrition-module": { title: "Nutrition training module — UNICEF-supported programme", pages: ["assets/abid/nutrition-1.jpg", "assets/abid/nutrition-2.jpg", "assets/abid/nutrition-3.jpg"] },
+    "kuposhan": { title: "Malnutrition explainer — Hindi-language knowledge product", pages: ["assets/abid/kuposhan-1.jpg"] },
+    "hei-study": { title: "Minority-managed higher education institutions — research study", pages: ["assets/abid/hei-1.jpg"] },
+    "parenting": { title: "Positive parenting — resource module", pages: ["assets/abid/parenting-1.jpg"] },
+    "newborn": { title: "Weak newborn study — outcomes and risk factors", pages: ["assets/abid/newborn-1.jpg"] },
+    "premanu": { title: "Organisation profile — Premanu Foundation", pages: ["assets/abid/premanu-1.jpg"] },
+    "education-2026": { title: "Education report, January 2026", pages: ["assets/abid/education-1.jpg"] },
   };
 
   const GALLERIES = {
@@ -20,6 +29,9 @@
       { src: "assets/work/cims-dashboard.png", cap: "Budget simulation dashboard — four fundable tiers for a research-centre build" },
       { src: "assets/work/jem-site.png", cap: "Public-facing programme website" },
       { src: "assets/work/nous-site.png", cap: "Custom publishing platform — 46 documentaries, 126 podcast episodes" },
+    ],
+    method: [
+      { src: "assets/abid/maxqda.jpg", cap: "Qualitative analysis in MAXQDA — code matrix across 12 institutional interviews" },
     ],
     design: [
       { src: "assets/work/nous-covers.png", cap: "Editorial cover system — media platform" },
