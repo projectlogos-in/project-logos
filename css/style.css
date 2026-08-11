@@ -1626,6 +1626,60 @@ section { padding: var(--section) 0; }
   .chapter.in svg * { animation: none !important; }
 }
 
+/* --- Artifact fan-stack (work chapters) --- */
+.art-stack { display: grid; }
+
+.art-stack figure {
+  grid-area: 1 / 1;
+  border: 1px solid var(--line);
+  background: var(--paper-shade);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  margin: 0;
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s ease;
+}
+
+.art-stack figure img { width: 100%; display: block; }
+
+.art-stack figcaption {
+  font-size: 0.72rem;
+  color: var(--ink-mute);
+  padding: 0.5rem 0.7rem;
+  border-top: 1px solid var(--line);
+  background: var(--paper-deep);
+}
+
+.art-stack .back { z-index: 0; opacity: 0; }
+.art-stack .front { z-index: 1; }
+
+.chapter.in .art-stack .front { transform: rotate(-2deg) translate(-3%, 1%); }
+.chapter.in .art-stack .back { opacity: 1; transform: rotate(2.4deg) translate(5%, -3%); transition-delay: 0.15s; }
+.chapter.in .art-stack.solo .front { transform: rotate(-1.4deg); }
+
+.art-stack:hover .front, .art-stack:hover .back { transform: rotate(0) translate(0, 0); }
+
+/* chapter deliverables + link (work chapters) */
+.chapter .deliverables { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.4rem; }
+
+.chapter .deliverables span {
+  font-size: 0.74rem;
+  font-weight: 500;
+  padding: 0.32rem 0.75rem;
+  border: 1px solid var(--line);
+  color: var(--ink-mute);
+  background: var(--paper-deep);
+}
+
+.chapter-link {
+  display: inline-block;
+  margin-top: 1.3rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--indigo);
+}
+
+.chapter-link:hover { color: #FF8A5C; }
+
 /* --- Collapsible service detail --- */
 .included-toggle {
   display: inline-flex;

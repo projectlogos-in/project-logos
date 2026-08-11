@@ -34,94 +34,141 @@
   </div>
 </header>
 
+<nav class="chapter-rail" aria-label="Case chapters">
+  <a href="#jem" data-code="01"><span>Documentation</span></a>
+  <a href="#cims" data-code="02"><span>Data</span></a>
+  <a href="#nous" data-code="03"><span>Media</span></a>
+  <a href="#shelf" data-code="+"><span>The shelf</span></a>
+</nav>
+
 <main>
 
-  <div class="hero" style="padding-bottom: 2rem;">
+  <!-- OPENING -->
+  <div class="hero" style="padding-bottom: 0;">
     <div class="wrap">
       <span class="eyebrow">Work</span>
-      <h1>Ten engagements. <em>Real deliverables.</em></h1>
-      <p class="lede">Not mockups — live websites, published reports, running platforms and audited campaigns. Every case below shipped.</p>
+      <h1 style="max-width: 20ch;">Ten engagements. <em>Zero mockups.</em></h1>
     </div>
   </div>
 
-  <section style="padding-top: 2rem;">
+  <section class="gap-intro" style="padding-bottom: calc(var(--section) * 0.6);">
     <div class="wrap">
+      <p class="gap-line reveal">Anyone can promise a rigorous study or a beautiful film.</p>
+      <p class="gap-line reveal"><strong>We'd rather show you what shipped.</strong></p>
+      <div class="stats reveal" style="padding-top: 2.5rem;">
+        <div><strong>1,828</strong><span>Incidents in a public tracker we built and maintain</span></div>
+        <div><strong>2,700</strong><span>Households surveyed in one study, door to door</span></div>
+        <div><strong>46</strong><span>Documentaries produced through our media practice</span></div>
+        <div><strong>126</strong><span>Podcast episodes published</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE 01 — DOCUMENTATION -->
+  <section class="chapter tinted" id="jem">
+    <span class="chapter-letter" aria-hidden="true">01</span>
+    <div class="wrap chapter-grid">
+      <div>
+        <span class="chapter-code">Case 01 · Flagship</span>
+        <h2 class="chapter-title">A national documentation programme</h2>
+        <p class="chapter-line">"Documentation, turned into public accountability."</p>
+        <p class="chapter-desc">A complete evidence infrastructure for a civil-society organisation monitoring hate crime and discrimination against religious minorities in India. We designed the documentation framework and verification protocol, ran the research and reporting programme — annual report, quarterly monitoring, pattern analysis, fact-checking — and built the public platform: a live, geocoded incident tracker.</p>
+        <div class="deliverables">
+          <span>Website + live tracker</span><span>Annual report</span><span>Documentation framework</span><span>Research report series</span><span>Escalation analytical model</span><span>Monthly monitoring framework</span>
+        </div>
+        <a class="chapter-link" href="https://jem.org.in" target="_blank" rel="noopener">Visit the live site →</a>
+      </div>
+      <div class="chapter-art">
+        <div class="art-stack">
+          <figure class="back">
+            <img src="assets/work/jem-site.png" alt="Public-facing programme website" loading="lazy" />
+          </figure>
+          <figure class="front">
+            <img src="assets/work/jem-tracker.png" alt="Public incident tracker — interactive map of 1,828 documented cases across India" loading="lazy" />
+            <figcaption>The public tracker — 1,828 source-linked cases, mapped and filterable</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="media-grid cols-2" style="max-width: 720px;">
+        <a class="media-card" data-reader="jem-annual">
+          <div class="thumb book"><img src="assets/work/jem-annual-report.png" alt="Annual Report 2025 cover" loading="lazy" /><span class="kind-chip">Annual report</span></div>
+          <div class="meta"><h3>Annual Report 2025</h3><span>Open in the reader</span></div>
+        </a>
+        <a class="media-card" data-reader="beyond-border">
+          <div class="thumb book"><img src="assets/work/jem-beyond-border.png" alt="Beyond the Border report cover" loading="lazy" /><span class="kind-chip">Research report</span></div>
+          <div class="meta"><h3>Beyond the Border</h3><span>Open in the reader</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE 02 — DATA -->
+  <section class="chapter" id="cims">
+    <span class="chapter-letter" aria-hidden="true">02</span>
+    <div class="wrap chapter-grid">
+      <div class="chapter-art">
+        <div class="art-stack solo">
+          <figure class="front">
+            <img src="assets/work/cims-dashboard.png" alt="Data observatory budget dashboard — four funding tiers" loading="lazy" />
+            <figcaption>Interactive budget dashboard — four fundable tiers, from $88k seed to $1.19M full-fledged</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div>
+        <span class="chapter-code">Case 02 · Strategy + Data</span>
+        <h2 class="chapter-title">A data observatory, from blueprint to budget</h2>
+        <p class="chapter-line">"A standing institution, argued into existence."</p>
+        <p class="chapter-desc">The founding documents of a research and data institution: concept note, observatory blueprint and framework, a full budget model with team resourcing, an interactive budget dashboard, and the founding-partnership proposal presented to its host organisation.</p>
+        <div class="deliverables"><span>Concept note</span><span>Observatory blueprint</span><span>Budget model + dashboard</span><span>Partnership proposal</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE 03 — MEDIA -->
+  <section class="chapter tinted" id="nous">
+    <span class="chapter-letter" aria-hidden="true">03</span>
+    <div class="wrap chapter-grid">
+      <div>
+        <span class="chapter-code">Case 03 · Media Platform</span>
+        <h2 class="chapter-title">A research-to-film media platform</h2>
+        <p class="chapter-line">"46 documentaries, 126 podcast episodes, one pipeline."</p>
+        <p class="chapter-desc">A 16-person research-to-film team. We designed its organisational architecture and eight-stage production pipeline, and built a custom publishing platform carrying 46 documentaries, 45 explainer episodes, 126 podcast episodes and 193 stories.</p>
+        <div class="deliverables"><span>Operating model</span><span>Production pipeline</span><span>Podcast programme</span><span>Custom website + CMS</span></div>
+        <a class="chapter-link" href="https://www.nous.org.in" target="_blank" rel="noopener">Visit nous.org.in →</a>
+      </div>
+      <div class="chapter-art">
+        <div class="art-stack">
+          <figure class="back">
+            <img src="assets/work/iman-social.png" alt="Channel identity system" loading="lazy" />
+          </figure>
+          <figure class="front">
+            <img src="assets/work/nous-site.png" alt="The media platform, live — documentaries, explainers, podcasts" loading="lazy" />
+            <figcaption>The platform, live — nous.org.in</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE SHELF -->
+  <section id="shelf">
+    <div class="wrap">
+      <div class="rail-head reveal">
+        <div>
+          <span class="eyebrow">The shelf</span>
+          <h2>Seven more, filed by practice</h2>
+        </div>
+        <span class="rail-link" style="border: 0; cursor: default;">Filter to browse</span>
+      </div>
       <div class="filters reveal" role="group" aria-label="Filter case studies by discipline">
         <button class="on" data-filter="all" type="button">All work</button>
-        <button data-filter="research" type="button">Research &amp; Evidence</button>
-        <button data-filter="meal" type="button">MEAL</button>
         <button data-filter="media" type="button">Storytelling &amp; Media</button>
         <button data-filter="digital" type="button">Digital &amp; Data</button>
         <button data-filter="capacity" type="button">Capacity Building</button>
       </div>
       <div class="cases">
-
-        <article class="case featured reveal" id="jem" data-tags="research meal digital">
-          <span class="tag">Flagship · Documentation + MEAL + Digital Product</span>
-          <h3>A national civil-society documentation programme</h3>
-          <p>A complete evidence infrastructure for a civil-society organisation monitoring hate crime and discrimination against religious minorities in India. We designed the documentation framework and verification protocol, ran the research and reporting programme (annual report, quarterly monitoring, pattern analysis, fact-checking), and built the public platform: a live, geocoded incident tracker that turns documentation into public accountability.</p>
-          <div class="case-media single">
-            <figure>
-              <img src="assets/work/jem-tracker.png" alt="Public incident tracker — interactive map of 1,828 documented cases across India" loading="lazy" />
-              <figcaption>The public incident tracker — 1,828 source-linked cases, mapped, categorised and filterable. Built by Project Logos.</figcaption>
-            </figure>
-          </div>
-          <div class="case-media">
-            <figure>
-              <img src="assets/work/jem-site.png" alt="Programme homepage" loading="lazy" />
-              <figcaption>Public-facing programme website</figcaption>
-            </figure>
-            <figure class="tall">
-              <img src="assets/work/jem-annual-report.png" alt="Annual report cover" loading="lazy" />
-              <figcaption>Annual Report 2025</figcaption>
-            </figure>
-            <figure class="tall">
-              <img src="assets/work/jem-beyond-border.png" alt="Research report cover" loading="lazy" />
-              <figcaption>Thematic research report</figcaption>
-            </figure>
-          </div>
-          <div class="deliverables">
-            <span>Website + live tracker</span><span>Annual report</span><span>Documentation framework</span><span>Research report series</span><span>Escalation analytical model</span><span>Monthly monitoring framework</span>
-          </div>
-          <a class="case-link" href="https://jem.org.in" target="_blank" rel="noopener">Visit the live site →</a>
-        </article>
-
-        <article class="case reveal" id="cims" data-tags="research digital">
-          <span class="tag">Strategy + Data Infrastructure</span>
-          <h3>A data observatory for a research centre</h3>
-          <p>The founding documents of a standing research and data institution: concept note, a data observatory blueprint and framework, a full budget model with team resourcing, an interactive budget dashboard, and the founding-partnership proposal presented to its host organisation.</p>
-          <div class="case-media single">
-            <figure>
-              <img src="assets/work/cims-dashboard.png" alt="Data observatory budget dashboard — four funding tiers from Seed to Full-fledged" loading="lazy" />
-              <figcaption>Interactive budget dashboard — four fundable tiers, from $88k seed to $1.19M full-fledged</figcaption>
-            </figure>
-          </div>
-          <div class="deliverables"><span>Concept note</span><span>Observatory blueprint</span><span>Budget model + dashboard</span><span>Partnership proposal</span></div>
-        </article>
-
-        <article class="case reveal" id="nous" data-tags="media digital">
-          <span class="tag">Media Platform · Built &amp; Operated</span>
-          <h3>A research-to-film media platform</h3>
-          <p>A 16-person research-to-film team. We designed its organisational architecture and eight-stage production pipeline, and built a custom publishing platform carrying 46 documentaries, 45 explainer episodes, 126 podcast episodes and 193 stories.</p>
-          <div class="case-media single">
-            <figure>
-              <img src="assets/work/nous-site.png" alt="Documentaries, explainers, podcasts, essays and reports" loading="lazy" />
-              <figcaption>The platform, live</figcaption>
-            </figure>
-          </div>
-          <div class="case-media duo">
-            <figure class="tall">
-              <img src="assets/work/nous-portfolio.png" alt="Institutional portfolio document cover" loading="lazy" />
-              <figcaption>Institutional portfolio</figcaption>
-            </figure>
-            <figure class="tall">
-              <img src="assets/work/nous-podcast.png" alt="Podcast roadmap cover" loading="lazy" />
-              <figcaption>Podcast programme roadmap</figcaption>
-            </figure>
-          </div>
-          <div class="deliverables"><span>Operating model</span><span>Production pipeline</span><span>Podcast programme</span><span>Custom website + CMS</span></div>
-          <a class="case-link" href="https://www.nous.org.in" target="_blank" rel="noopener">Visit nous.org.in →</a>
-        </article>
 
         <article class="case reveal" id="iman" data-tags="media">
           <span class="tag">Channel Build · Editorial + Production</span>
@@ -274,5 +321,6 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/media.js"></script>
 </body>
 </html>

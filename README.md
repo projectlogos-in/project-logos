@@ -11,9 +11,9 @@ Static site, no build step. Open `index.html` or deploy the folder as-is
 | Page | Purpose |
 | --- | --- |
 | `index.html` | Hero, five practices, live data explorer, process, featured work, principals, CTA |
-| `services.html` | Full service catalogue: Research & Evidence, MEAL, Storytelling & Media, Digital & Data Products, Capacity Building — with "who we work with," process, principles, bundled offers |
-| `work.html` | Ten case studies, filterable by practice: national documentation programme (flagship), data observatory, media platform, channel build, publishing programme, academic partnerships, campaigns |
-| `studio.html` | What we believe, principal bios, bench stats |
+| `services.html` | Scrollytelling: the two-gap opening, five chapters (A–E) with animated SVG instruments, chapter rail, full catalogue behind toggles, process, principles, bundles |
+| `work.html` | Scrollytelling: three flagship case chapters (documentation, data, media) with fanning artifact stacks + a filterable "shelf" of seven more cases |
+| `studio.html` | Scrollytelling: three principal chapters with craft instruments (pipeline blueprint, bell curve, viewfinder), beliefs, bench stats |
 | `contact.html` | Contact + typical first engagements by client type |
 
 ## Design system
