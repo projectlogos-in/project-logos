@@ -5,6 +5,14 @@ if (toggle && nav) {
   toggle.addEventListener("click", () => nav.classList.toggle("open"));
 }
 
+// Staggered grids — children rise one after another
+document
+  .querySelectorAll(".pillars, .media-grid, .cases, .team, .model, .stats, .who-grid, .page-strip, .engagement-grid, .principles-grid, .bundle-grid, .filters")
+  .forEach((grid) => {
+    grid.classList.add("stagger");
+    Array.from(grid.children).forEach((child, i) => child.style.setProperty("--i", Math.min(i, 9)));
+  });
+
 // Scroll reveal
 const observer = new IntersectionObserver(
   (entries) => {
@@ -17,7 +25,31 @@ const observer = new IntersectionObserver(
   },
   { threshold: 0.12 }
 );
-document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+document.querySelectorAll(".reveal, .stagger").forEach((el) => observer.observe(el));
+
+// Header depth on scroll + spine progress thread
+const header = document.querySelector(".site-header");
+const spineProgress = document.createElement("div");
+spineProgress.className = "spine-progress";
+document.body.appendChild(spineProgress);
+
+const onScroll = () => {
+  if (header) header.classList.toggle("scrolled", window.scrollY > 24);
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  spineProgress.style.transform = `scaleY(${max > 0 ? Math.min(1, window.scrollY / max) : 0})`;
+};
+window.addEventListener("scroll", onScroll, { passive: true });
+onScroll();
+
+// Hero ornament parallax
+const ornament = document.querySelector(".hero-ornament");
+if (ornament && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  window.addEventListener(
+    "scroll",
+    () => { ornament.style.transform = `translateY(${window.scrollY * 0.14}px) rotate(${window.scrollY * 0.004}deg)`; },
+    { passive: true }
+  );
+}
 
 // Count-up stats when they enter the viewport
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
