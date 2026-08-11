@@ -21,6 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>try { if (localStorage.getItem("pl-theme") === "light") document.documentElement.dataset.theme = "light"; } catch (e) {}</script>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -36,6 +37,10 @@
       </svg>
       PROJECT LOGOS
     </a>
+    <button class="theme-toggle" type="button" aria-label="Switch between dark and light theme">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
+    </button>
     <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav class="nav">
       <a href="index.html" aria-current="page">Home</a>

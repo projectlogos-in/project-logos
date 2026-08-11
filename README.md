@@ -59,6 +59,15 @@ engine (`js/media.js`) drives three modes:
 Wiring is declarative: `data-video="<yt-id>"`, `data-reader="<doc-key>"
 data-page="<n>"`, `data-gallery="<key>" data-index="<n>"` on any element.
 
+## Theming
+
+Dark is the default. A header toggle (sun/moon) switches to a warm-cream light
+theme — pure CSS token swap under `:root[data-theme="light"]`, persisted in
+localStorage with a no-flash inline head script. Dark bands (process, principles,
+footer, media overlay) keep the dark palette in light mode via scoped token
+re-overrides; the SVG instruments remap their fixed palette via attribute
+selectors; the data explorer re-ramps its choropleth on theme change.
+
 ## Interactive elements
 
 - **Research explorer** (homepage): India choropleth + monthly timeline + category

@@ -60,13 +60,17 @@
     return { byState, byMonth, total };
   }
 
-  // --- Color ramp: dark surface → signal vermilion ---
+  // --- Color ramp: surface → signal vermilion (theme-aware) ---
   const ramp = (t) => {
-    const a = [35, 32, 26], b = [255, 91, 58];
+    const light = document.documentElement.dataset.theme === "light";
+    const a = light ? [227, 219, 198] : [35, 32, 26];
+    const b = light ? [214, 67, 31] : [255, 91, 58];
     const e = Math.pow(t, 0.55); // perceptual-ish boost for low counts
     const c = a.map((av, i) => Math.round(av + (b[i] - av) * e));
     return `rgb(${c[0]},${c[1]},${c[2]})`;
   };
+  window.addEventListener("pl-theme", () => { if (state()) render(false); });
+  const state = () => root._counts;
 
   // --- Timeline bars ---
   const barEls = D.months.map((m, i) => {

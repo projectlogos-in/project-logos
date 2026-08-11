@@ -5,6 +5,17 @@ if (toggle && nav) {
   toggle.addEventListener("click", () => nav.classList.toggle("open"));
 }
 
+// Theme toggle — dark is the default; choice persists
+document.querySelectorAll(".theme-toggle").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+    if (next === "light") document.documentElement.dataset.theme = "light";
+    else delete document.documentElement.dataset.theme;
+    try { localStorage.setItem("pl-theme", next); } catch (e) {}
+    window.dispatchEvent(new Event("pl-theme"));
+  });
+});
+
 // Staggered grids — children rise one after another
 document
   .querySelectorAll(".pillars, .media-grid, .cases, .team, .model, .stats, .who-grid, .page-strip, .engagement-grid, .principles-grid, .bundle-grid, .filters")
