@@ -146,6 +146,11 @@ if (chapters.length) {
   }
 }
 
+// Workflow cascade: index each stage for staggered entry
+document.querySelectorAll(".included").forEach((ul) => {
+  Array.from(ul.children).forEach((li, i) => li.style.setProperty("--i", i));
+});
+
 // Collapsible "What's included" toggles
 document.addEventListener("click", (e) => {
   const t = e.target.closest(".included-toggle");
