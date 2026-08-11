@@ -20,7 +20,7 @@
     "parenting": { title: "Positive parenting — resource module", pages: ["assets/abid/parenting-1.jpg"] },
     "newborn": { title: "Weak newborn study — outcomes and risk factors", pages: ["assets/abid/newborn-1.jpg"] },
     "premanu": { title: "Organisation profile — Premanu Foundation", pages: ["assets/abid/premanu-1.jpg"] },
-    "education-2026": { title: "Education report, January 2026", pages: ["assets/abid/education-1.jpg"] },
+    "education-2026": { title: "Household education survey — Jamia Nagar, Delhi (Jan 2026)", pages: ["assets/abid/education-1.jpg"] },
   };
 
   const GALLERIES = {
@@ -155,4 +155,25 @@
       return;
     }
   });
+
+  // ---------- Hover previews: cycle real frames of each film ----------
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.querySelectorAll(".media-card[data-video]").forEach((card) => {
+      const img = card.querySelector(".thumb img");
+      if (!img) return;
+      const id = card.dataset.video;
+      const frames = [1, 2, 3].map((n) => `https://i.ytimg.com/vi/${id}/hq${n}.jpg`);
+      let timer = null, i = 0, orig = null;
+      card.addEventListener("mouseenter", () => {
+        if (timer) return;
+        orig = img.src;
+        frames.forEach((f) => { const im = new Image(); im.src = f; });
+        timer = setInterval(() => { img.src = frames[i % frames.length]; i++; }, 620);
+      });
+      card.addEventListener("mouseleave", () => {
+        clearInterval(timer); timer = null; i = 0;
+        if (orig) img.src = orig;
+      });
+    });
+  }
 })();

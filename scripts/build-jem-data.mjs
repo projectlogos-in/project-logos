@@ -16,12 +16,13 @@ const geo = JSON.parse(readFileSync(join(TRACKER, "india-states.json"), "utf8"))
 
 // --- Projection: equirectangular over India's bounding box ---
 const LON = [68, 97.5], LAT = [6.5, 37.2];
-const W = 620;
-const XS = W / (LON[1] - LON[0]);
+const PAD = 22; // breathing room so the outline never touches the frame
+const XS = (620 - 2 * PAD) / (LON[1] - LON[0]);
 const YS = XS * 1.18; // latitude stretch ≈ 1/cos(mid-lat 22.5°)
-const H = Math.round((LAT[1] - LAT[0]) * YS);
-const px = (lon) => (lon - LON[0]) * XS;
-const py = (lat) => (LAT[1] - lat) * YS;
+const W = 620;
+const H = Math.round((LAT[1] - LAT[0]) * YS + 2 * PAD);
+const px = (lon) => PAD + (lon - LON[0]) * XS;
+const py = (lat) => PAD + (LAT[1] - lat) * YS;
 
 const ringToPath = (ring, every) => {
   let d = "";

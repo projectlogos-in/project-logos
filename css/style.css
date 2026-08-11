@@ -255,9 +255,119 @@ h1, h2, h3, .display {
   color: var(--indigo);
 }
 
+/* hero grid: copy + living montage */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+}
+
+@media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
+
+.hero-montage {
+  position: relative;
+  aspect-ratio: 16 / 11;
+  border: 1px solid var(--line);
+  background: #000;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.hero-montage .m-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity 1.1s ease;
+}
+
+.hero-montage .m-layer.active {
+  opacity: 1;
+  animation: kenburns 9s ease-out forwards;
+}
+
+@keyframes kenburns {
+  from { transform: scale(1.12) translate(1.5%, -1%); }
+  to { transform: scale(1.02) translate(-0.5%, 0.5%); }
+}
+
+.hero-montage .m-cap {
+  position: absolute;
+  left: 0.9rem;
+  bottom: 1rem;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  background: rgba(0, 0, 0, 0.72);
+  color: #F2EFE6;
+  padding: 0.35rem 0.7rem;
+  max-width: 85%;
+}
+
+.hero-montage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(0,0,0,0.18), transparent 35%, transparent 65%, rgba(0,0,0,0.35));
+  pointer-events: none;
+}
+
+.hero-montage .m-hint {
+  position: absolute;
+  right: 0.9rem;
+  top: 0.9rem;
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1.2px solid rgba(242, 239, 230, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.hero-montage .m-hint::after {
+  content: "";
+  width: 0; height: 0;
+  border-left: 9px solid #F2EFE6;
+  border-top: 5.5px solid transparent;
+  border-bottom: 5.5px solid transparent;
+  margin-left: 2px;
+}
+
+.hero-montage:hover .m-hint { background: var(--indigo); transform: scale(1.12); }
+
+.hero-montage .m-bar {
+  position: absolute;
+  left: 0; bottom: 0;
+  height: 2.5px;
+  background: var(--indigo);
+  z-index: 3;
+  width: 0%;
+}
+
+.hero-montage.playing .m-bar { animation: m-progress 4.6s linear infinite; }
+
+@keyframes m-progress { from { width: 0%; } to { width: 100%; } }
+
+/* pillar mini-instruments */
+.pillar .mini { margin-bottom: 1.1rem; display: block; overflow: visible; }
+.pillar .mini * { transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); transform-origin: center; transform-box: fill-box; }
+.pillar:hover .mini .m-a { transform: translateY(-2.5px); }
+.pillar:hover .mini .m-b { transform: scale(1.25); }
+
 /* hero entrance — staggered rise on load */
 @media (prefers-reduced-motion: no-preference) {
-  .hero .eyebrow, .hero h1, .hero .lede, .hero .btn-row, .hero .hero-meta, .hero .showcase-nav {
+  .hero .eyebrow, .hero h1, .hero .lede, .hero .btn-row, .hero .hero-meta, .hero .showcase-nav, .hero .hero-montage {
     opacity: 0;
     transform: translateY(26px);
     animation: hero-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
@@ -267,6 +377,7 @@ h1, h2, h3, .display {
   .hero .lede { animation-delay: 0.3s; }
   .hero .btn-row { animation-delay: 0.45s; }
   .hero .hero-meta, .hero .showcase-nav { animation-delay: 0.58s; }
+  .hero .hero-montage { animation-delay: 0.35s; }
 }
 
 @keyframes hero-rise {
@@ -1563,11 +1674,11 @@ section { padding: var(--section) 0; }
    ================================================================ */
 
 /* --- The gap: two statements and an answer --- */
-.gap-intro { padding: calc(var(--section) * 0.9) 0; }
+.gap-intro { padding: calc(var(--section) * 0.9) 0; position: relative; overflow: hidden; }
 
 .gap-intro .gap-line {
   font-family: var(--font-display);
-  font-size: clamp(1.7rem, 4.2vw, 3.4rem);
+  font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.15;
@@ -1582,11 +1693,54 @@ section { padding: var(--section) 0; }
 .gap-intro .gap-answer {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(2.4rem, 6vw, 4.6rem);
+  font-size: clamp(3rem, 7.5vw, 5.6rem);
   color: var(--indigo);
-  margin-top: 2.4rem;
+  margin-top: 2.8rem;
   line-height: 1.05;
 }
+
+.gap-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--indigo);
+  margin-bottom: 2.2rem;
+}
+
+.gap-kicker::after { content: ""; width: 4rem; height: 1px; background: var(--line); }
+
+/* animated marker sweep under key phrases */
+strong.mark {
+  background-image: linear-gradient(120deg, rgba(255, 91, 58, 0.32), rgba(255, 91, 58, 0.16));
+  background-repeat: no-repeat;
+  background-size: 0% 42%;
+  background-position: 0 82%;
+  transition: background-size 1s cubic-bezier(0.22, 1, 0.36, 1) 0.45s;
+}
+
+.reveal.in strong.mark { background-size: 100% 42%; }
+
+[data-theme="light"] strong.mark {
+  background-image: linear-gradient(120deg, rgba(214, 67, 31, 0.26), rgba(214, 67, 31, 0.12));
+}
+
+.gap-ornament {
+  position: absolute;
+  right: -3%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(220px, 26vw, 420px);
+  pointer-events: none;
+}
+
+.gap-ornament path { stroke: var(--ink); opacity: 0.06; fill: none; }
+.gap-ornament circle { stroke: var(--indigo); opacity: 0.5; fill: none; }
+
+@media (max-width: 780px) { .gap-ornament { display: none; } }
 
 /* --- Chapter rail (desktop wayfinding) --- */
 .chapter-rail {
@@ -2065,6 +2219,7 @@ section { padding: var(--section) 0; }
 @media (prefers-reduced-motion: reduce) {
   .reveal, .stagger > * { opacity: 1; transform: none; transition: none; }
   .ticker-track { animation: none; }
-  .hero .eyebrow, .hero h1, .hero .lede, .hero .btn-row, .hero .hero-meta, .hero .showcase-nav { opacity: 1; transform: none; animation: none; }
+  .hero .eyebrow, .hero h1, .hero .lede, .hero .btn-row, .hero .hero-meta, .hero .showcase-nav, .hero .hero-montage { opacity: 1; transform: none; animation: none; }
+  .hero-montage .m-layer.active { animation: none; transform: none; }
   html { scroll-behavior: auto; }
 }

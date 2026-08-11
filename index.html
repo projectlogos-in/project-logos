@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <script>try { if (localStorage.getItem("pl-theme") === "light") document.documentElement.dataset.theme = "light"; } catch (e) {}</script>
-  <link rel="stylesheet" href="css/style.css?v=5" />
+  <link rel="stylesheet" href="css/style.css?v=6" />
 </head>
 <body>
 
@@ -48,7 +48,7 @@
       <a href="index.html" aria-current="page">Home</a>
       <a href="services.html">Services</a>
       <a href="work.html">Work</a>
-      <a href="studio.html">Studio</a>
+      <a href="studio.html">About</a>
       <a class="cta" href="contact.html">Start a project</a>
     </nav>
   </div>
@@ -63,13 +63,14 @@
       <path class="inner" d="M16 88 L16 48 A30.5 30.5 0 0 1 36 17.5 A30.5 30.5 0 0 1 56 48 L56 88" stroke-width="0.9" />
       <circle cx="36" cy="4.5" r="3.2" stroke-width="0.9" />
     </svg>
-    <div class="wrap">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
       <span class="eyebrow">Research · Evaluation · Storytelling · Digital</span>
       <h1>Don't take our word for it. <em>Watch the work.</em></h1>
-      <p class="lede">Project Logos closes the two gaps every social-change organisation faces: not having the evidence you need, and having it but moving no one. The proof is below — films you can play, publications you can read, live data you can filter. All on this page.</p>
+      <p class="lede">Project Logos closes the two gaps every social-change organisation faces: not having the evidence you need, and having it but moving no one. The proof is beside and below — films, publications, live data. All on this page.</p>
       <div class="btn-row" style="justify-content: flex-start; margin-top: 2rem;">
-        <button class="btn" data-video="XclWGa0_7Bg" data-title="Rooh Afza: A Summer Story — documentary">▶&nbsp;&nbsp;Play a film</button>
-        <a class="btn ghost" href="contact.html">Start a project</a>
+        <a class="btn" href="contact.html">Start a project</a>
+        <a class="btn ghost" href="#films">See the work</a>
       </div>
       <nav class="showcase-nav" aria-label="Jump to portfolio section">
         <a href="#films">Documentaries &amp; explainers</a>
@@ -78,6 +79,12 @@
         <a href="#podcasts">Podcasts</a>
         <a href="#design">Design &amp; stills</a>
       </nav>
+      </div>
+      <div class="hero-montage" id="hero-montage" role="button" aria-label="Open the current showcase item">
+        <span class="m-cap"></span>
+        <span class="m-hint" aria-hidden="true"></span>
+        <span class="m-bar" aria-hidden="true"></span>
+      </div>
     </div>
   </div>
 
@@ -95,9 +102,9 @@
       <div class="rail-head reveal">
         <div>
           <span class="eyebrow">Documentaries &amp; Explainers</span>
-          <h2>Films that carry the research</h2>
+          <h2>Documentaries &amp; explainers that carry the research</h2>
         </div>
-        <a class="rail-link" href="https://www.youtube.com/@nousnetwork" target="_blank" rel="noopener">Full slate on YouTube →</a>
+        <span class="rail-link" style="border: 0; cursor: default;">Hover for a glimpse · click to play</span>
       </div>
       <div class="media-grid reveal">
         <a class="media-card" data-video="XclWGa0_7Bg" data-title="Rooh Afza: A Summer Story">
@@ -178,6 +185,14 @@
           <div class="thumb book"><img src="assets/abid/nutrition-1.jpg" alt="Nutrition module cover" loading="lazy" /><span class="kind-chip">Training module</span></div>
           <div class="meta"><h3>Nutrition Module</h3><span>UNICEF-supported programme</span></div>
         </a>
+        <a class="media-card" data-reader="education-2026">
+          <div class="thumb book"><img src="assets/abid/education-1.jpg" alt="Jamia Nagar education survey report cover" loading="lazy" /><span class="kind-chip">Survey report</span></div>
+          <div class="meta"><h3>Jamia Nagar Education Survey</h3><span>2,700-household study, Delhi</span></div>
+        </a>
+        <a class="media-card" data-reader="hei-study">
+          <div class="thumb book"><img src="assets/abid/hei-1.jpg" alt="Higher education institutions study cover" loading="lazy" /><span class="kind-chip">National study</span></div>
+          <div class="meta"><h3>Higher Education Study</h3><span>Minority-managed institutions, nationwide</span></div>
+        </a>
       </div>
     </div>
   </section>
@@ -226,6 +241,7 @@
         </div>
         <a class="rail-link" href="https://www.nous.org.in/podcast" target="_blank" rel="noopener">All episodes →</a>
       </div>
+      <p class="lede reveal" style="margin: -1.5rem 0 2rem;">We build podcast programmes end to end — editorial architecture, recording, edit and distribution. <a href="services.html#media" style="color: var(--indigo); text-decoration: underline;">See the service →</a></p>
       <div class="media-grid cols-4 reveal">
         <a class="media-card" data-video="dMM4eV4JyGs" data-title="Systemic Marginalisation: Has Every Political Party Failed? — with Raju Parulekar">
           <div class="thumb"><img src="https://i.ytimg.com/vi/dMM4eV4JyGs/hqdefault.jpg" alt="Podcast with Raju Parulekar" loading="lazy" /><span class="kind-chip">Podcast</span><span class="play-badge"></span></div>
@@ -287,26 +303,31 @@
       </div>
       <div class="pillars cols-5 reveal">
         <a class="pillar" href="services.html#research">
+          <svg class="mini" width="52" height="30" viewBox="0 0 52 30" fill="none" aria-hidden="true"><path class="m-a" d="M4 26 C 16 24, 30 14, 48 5" style="stroke:var(--indigo)" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="22" r="2.4" style="fill:var(--ink-mute)"/><circle cx="26" cy="15" r="2.4" style="fill:var(--ink-mute)"/><circle class="m-b" cx="42" cy="7" r="2.8" style="fill:var(--indigo)"/></svg>
           <span class="num">A</span>
           <h3>Research &amp; Evidence</h3>
           <p>End-to-end studies, surveys and qualitative research — from question to defensible report.</p>
         </a>
         <a class="pillar" href="services.html#meal">
+          <svg class="mini" width="52" height="30" viewBox="0 0 52 30" fill="none" aria-hidden="true"><circle class="m-a" cx="26" cy="15" r="11" style="stroke:var(--ink-mute)" stroke-width="1.6" stroke-dasharray="3 4"/><circle class="m-b" cx="26" cy="4" r="3" style="fill:var(--indigo)"/><circle cx="16" cy="21" r="2.6" style="fill:var(--ink-mute)"/><circle cx="36" cy="21" r="2.6" style="fill:var(--ink-mute)"/></svg>
           <span class="num">B</span>
           <h3>Monitoring, Evaluation &amp; Learning</h3>
           <p>MEAL frameworks, impact evaluation and documentation systems built for accountability.</p>
         </a>
         <a class="pillar" href="services.html#media">
+          <svg class="mini" width="52" height="30" viewBox="0 0 52 30" fill="none" aria-hidden="true"><rect x="8" y="9" width="4" height="12" rx="2" style="fill:var(--ink-mute)"/><rect class="m-a" x="16" y="4" width="4" height="22" rx="2" style="fill:var(--indigo)"/><rect x="24" y="11" width="4" height="8" rx="2" style="fill:var(--ink-mute)"/><rect class="m-b" x="32" y="6" width="4" height="18" rx="2" style="fill:var(--indigo)"/><rect x="40" y="10" width="4" height="10" rx="2" style="fill:var(--ink-mute)"/></svg>
           <span class="num">C</span>
           <h3>Storytelling &amp; Media</h3>
           <p>Field documentary and video production — story to screen, on the evidence.</p>
         </a>
         <a class="pillar" href="services.html#digital">
+          <svg class="mini" width="52" height="30" viewBox="0 0 52 30" fill="none" aria-hidden="true"><rect x="6" y="4" width="40" height="23" rx="3" style="stroke:var(--ink-mute)" stroke-width="1.6"/><line x1="6" y1="10" x2="46" y2="10" style="stroke:var(--ink-mute)" stroke-width="1.2"/><path class="m-a" d="M12 22 C 18 20, 24 15, 32 13 S 40 12, 41 12" style="stroke:var(--indigo)" stroke-width="1.8" stroke-linecap="round"/><circle class="m-b" cx="41" cy="12" r="2.4" style="fill:var(--indigo)"/></svg>
           <span class="num">D</span>
           <h3>Digital, Data &amp; AI</h3>
           <p>Websites, dashboards, live trackers — and AI systems built on your own corpus, with judgment kept human.</p>
         </a>
         <a class="pillar" href="services.html#capacity">
+          <svg class="mini" width="52" height="30" viewBox="0 0 52 30" fill="none" aria-hidden="true"><line x1="26" y1="15" x2="10" y2="6" style="stroke:var(--ink-mute)" stroke-width="1.4"/><line x1="26" y1="15" x2="42" y2="6" style="stroke:var(--ink-mute)" stroke-width="1.4"/><line class="m-a" x1="26" y1="15" x2="26" y2="27" style="stroke:var(--ink-mute)" stroke-width="1.4"/><circle class="m-b" cx="26" cy="15" r="3.4" style="fill:var(--indigo)"/><circle cx="10" cy="6" r="2.4" style="fill:var(--ink-mute)"/><circle cx="42" cy="6" r="2.4" style="fill:var(--ink-mute)"/><circle cx="26" cy="27" r="2.4" style="fill:var(--ink-mute)"/></svg>
           <span class="num">E</span>
           <h3>Capacity Building</h3>
           <p>Training and embedded coaching in methods, data, MEAL and media skills.</p>
@@ -404,12 +425,13 @@
         </ul>
       </div>
       <div>
-        <h4>Selected work</h4>
+        <h4>Practices</h4>
         <ul>
-          <li><a href="https://jem.org.in" target="_blank" rel="noopener">jem.org.in</a></li>
-          <li><a href="work.html#jem">Incident tracker</a></li>
-          <li><a href="https://www.nous.org.in" target="_blank" rel="noopener">nous.org.in</a></li>
-          <li><a href="https://www.youtube.com/@nousnetwork" target="_blank" rel="noopener">YouTube channel</a></li>
+          <li><a href="services.html#research">Research &amp; Evidence</a></li>
+          <li><a href="services.html#meal">Monitoring &amp; Evaluation</a></li>
+          <li><a href="services.html#media">Storytelling &amp; Media</a></li>
+          <li><a href="services.html#digital">Digital, Data &amp; AI</a></li>
+          <li><a href="services.html#capacity">Capacity Building</a></li>
         </ul>
       </div>
     </div>
@@ -420,9 +442,9 @@
   </div>
 </footer>
 
-<script src="assets/data/jem-data.js?v=5"></script>
-<script src="js/main.js?v=5"></script>
-<script src="js/jem-widget.js?v=5"></script>
-<script src="js/media.js?v=5"></script>
+<script src="assets/data/jem-data.js?v=6"></script>
+<script src="js/main.js?v=6"></script>
+<script src="js/jem-widget.js?v=6"></script>
+<script src="js/media.js?v=6"></script>
 </body>
 </html>

@@ -24,6 +24,48 @@ document.addEventListener("click", (e) => {
   window.dispatchEvent(new Event("pl-theme"));
 });
 
+// Hero montage — a living reel of real work
+const montage = document.getElementById("hero-montage");
+if (montage) {
+  const slides = [
+    { src: "https://i.ytimg.com/vi/XclWGa0_7Bg/hqdefault.jpg", cap: "ROOH AFZA · DOCUMENTARY", video: "XclWGa0_7Bg" },
+    { src: "assets/work/jem-tracker.png", cap: "LIVE INCIDENT TRACKER · 1,828 CASES", gallery: "dashboards", index: 0 },
+    { src: "https://i.ytimg.com/vi/3cJAszyHKFA/hqdefault.jpg", cap: "THE PROTEST THAT SHOOK THE GOVERNMENT · DOCUMENTARY", video: "3cJAszyHKFA" },
+    { src: "assets/handbook/pg-09.jpg", cap: "ILLUSTRATED HANDBOOK · 83 PAGES", reader: "handbook", page: 8 },
+    { src: "https://i.ytimg.com/vi/xfwLbrr7L44/hqdefault.jpg", cap: "THE EDUCATION CRISIS · EXPLAINER", video: "xfwLbrr7L44" },
+    { src: "assets/work/cims-dashboard.png", cap: "BUDGET SIMULATION DASHBOARD", gallery: "dashboards", index: 1 },
+  ];
+  const layers = [document.createElement("img"), document.createElement("img")];
+  layers.forEach((l) => { l.className = "m-layer"; l.alt = ""; montage.prepend(l); });
+  const cap = montage.querySelector(".m-cap");
+  let cur = 0, front = 0;
+
+  const applyTargets = (s) => {
+    ["video", "reader", "page", "gallery", "index"].forEach((k) => delete montage.dataset[k]);
+    if (s.video) montage.dataset.video = s.video;
+    else if (s.reader) { montage.dataset.reader = s.reader; montage.dataset.page = s.page || 0; }
+    else if (s.gallery) { montage.dataset.gallery = s.gallery; montage.dataset.index = s.index || 0; }
+  };
+
+  const show = (i) => {
+    const s = slides[i];
+    const back = 1 - front;
+    layers[back].src = s.src;
+    layers[back].classList.add("active");
+    layers[front].classList.remove("active");
+    front = back;
+    cap.textContent = s.cap;
+    applyTargets(s);
+  };
+
+  slides.forEach((s) => { const im = new Image(); im.src = s.src; });
+  show(0);
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    montage.classList.add("playing");
+    setInterval(() => { cur = (cur + 1) % slides.length; show(cur); }, 4600);
+  }
+}
+
 // Staggered grids — children rise one after another
 document
   .querySelectorAll(".pillars, .media-grid, .cases, .team, .model, .stats, .who-grid, .page-strip, .engagement-grid, .principles-grid, .bundle-grid, .filters")
