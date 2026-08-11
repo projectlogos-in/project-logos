@@ -1448,6 +1448,221 @@ section { padding: var(--section) 0; }
   .plx-overlay { padding: 1rem; }
 }
 
+/* ================================================================
+   SERVICES SCROLLYTELLING — chapters, animated instruments, rail
+   ================================================================ */
+
+/* --- The gap: two statements and an answer --- */
+.gap-intro { padding: calc(var(--section) * 0.9) 0; }
+
+.gap-intro .gap-line {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 4.2vw, 3.4rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--ink-mute);
+  max-width: 24ch;
+}
+
+.gap-intro .gap-line + .gap-line { margin-top: 1.2rem; }
+
+.gap-intro .gap-line strong { color: var(--ink); font-weight: 600; }
+
+.gap-intro .gap-answer {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(2.4rem, 6vw, 4.6rem);
+  color: var(--indigo);
+  margin-top: 2.4rem;
+  line-height: 1.05;
+}
+
+/* --- Chapter rail (desktop wayfinding) --- */
+.chapter-rail {
+  position: fixed;
+  left: clamp(0.8rem, 2vw, 2rem);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 90;
+  display: none;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+@media (min-width: 1280px) { .chapter-rail { display: flex; } }
+
+.chapter-rail a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  transition: color 0.25s;
+}
+
+.chapter-rail a::before {
+  content: attr(data-code);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font-size: 0.62rem;
+  transition: all 0.25s;
+}
+
+.chapter-rail a span { opacity: 0; transform: translateX(-4px); transition: all 0.25s; }
+
+.chapter-rail a:hover span { opacity: 1; transform: none; }
+
+.chapter-rail a.current { color: var(--ink); }
+
+.chapter-rail a.current::before {
+  background: var(--indigo);
+  border-color: var(--indigo);
+  color: var(--signal-ink);
+  box-shadow: 0 0 18px rgba(255, 91, 58, 0.5);
+}
+
+.chapter-rail a.current span { opacity: 1; transform: none; }
+
+/* --- Chapters --- */
+.chapter { position: relative; overflow: hidden; padding: calc(var(--section) * 1.1) 0 var(--section); }
+
+.chapter-letter {
+  position: absolute;
+  top: 0;
+  right: -2%;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(16rem, 42vw, 34rem);
+  line-height: 0.8;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(242, 239, 230, 0.07);
+  pointer-events: none;
+  user-select: none;
+  will-change: transform;
+}
+
+.chapter-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) { .chapter-grid { grid-template-columns: 1fr; } }
+
+.chapter-code {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--indigo);
+  display: block;
+  margin-bottom: 1.1rem;
+}
+
+.chapter-title {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  color: var(--ink);
+  margin-bottom: 1.2rem;
+}
+
+.chapter-line {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  color: var(--indigo);
+  margin-bottom: 1.1rem;
+  line-height: 1.4;
+}
+
+.chapter-desc { color: var(--ink-mute); font-size: 1rem; max-width: 46ch; }
+
+.chapter-art { position: relative; }
+
+.chapter-art svg { width: 100%; height: auto; display: block; overflow: visible; }
+
+/* --- Instrument animations (trigger: .chapter.in) --- */
+@keyframes pl-pop { 0% { opacity: 0; transform: scale(0); } 70% { opacity: 1; transform: scale(1.25); } 100% { opacity: 1; transform: scale(1); } }
+@keyframes pl-draw { to { stroke-dashoffset: 0; } }
+@keyframes pl-grow { from { transform: scaleY(0.04); } to { transform: scaleY(1); } }
+@keyframes pl-eq { 0%, 100% { transform: scaleY(0.25); } 50% { transform: scaleY(1); } }
+@keyframes pl-scan { 0% { transform: translateX(0); } 100% { transform: translateX(var(--scan, 200px)); } }
+@keyframes pl-pulse { 0% { opacity: 0.9; transform: scale(0.6); } 100% { opacity: 0; transform: scale(1.9); } }
+@keyframes pl-orbit { to { transform: rotate(360deg); } }
+@keyframes pl-blink { 0%, 60% { opacity: 1; } 61%, 100% { opacity: 0; } }
+
+.chapter svg .dot, .chapter svg .node { opacity: 0; transform-origin: center; transform-box: fill-box; }
+.chapter svg .wire { stroke-dasharray: var(--len, 400); stroke-dashoffset: var(--len, 400); }
+.chapter svg .bar { transform-origin: bottom; transform-box: fill-box; transform: scaleY(0.04); }
+.chapter svg .eq { transform-origin: center; transform-box: fill-box; transform: scaleY(0.25); }
+.chapter svg .ring { opacity: 0; transform-origin: center; transform-box: fill-box; }
+
+.chapter.in svg .dot, .chapter.in svg .node { animation: pl-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; animation-delay: calc(var(--d, 0) * 1ms); }
+.chapter.in svg .wire { animation: pl-draw 1.4s cubic-bezier(0.6, 0, 0.2, 1) forwards; animation-delay: calc(var(--d, 0) * 1ms); }
+.chapter.in svg .bar { animation: pl-grow 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards; animation-delay: calc(var(--d, 0) * 1ms); }
+.chapter.in svg .eq { animation: pl-eq calc(var(--t, 900) * 1ms) ease-in-out infinite; animation-delay: calc(var(--d, 0) * 1ms); }
+.chapter.in svg .ring { animation: pl-pulse 2.2s ease-out infinite; animation-delay: calc(var(--d, 0) * 1ms); }
+.chapter.in svg .orbiter { animation: pl-orbit 14s linear infinite; transform-origin: center; transform-box: fill-box; }
+.chapter.in svg .playhead { animation: pl-scan 5s linear infinite; }
+.chapter.in svg .cursor { animation: pl-blink 1.1s steps(1) infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .chapter svg .dot, .chapter svg .node, .chapter svg .ring { opacity: 1; }
+  .chapter svg .wire { stroke-dashoffset: 0; }
+  .chapter svg .bar { transform: none; }
+  .chapter svg .eq { transform: none; }
+  .chapter.in svg * { animation: none !important; }
+}
+
+/* --- Collapsible service detail --- */
+.included-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+  transition: all 0.25s;
+  margin-top: 0.4rem;
+}
+
+.included-toggle::after { content: "+"; color: var(--indigo); font-size: 0.95rem; transition: transform 0.3s; }
+
+.included-toggle:hover { border-color: var(--indigo); color: var(--ink); }
+
+.subservice.open .included-toggle::after { transform: rotate(45deg); }
+
+.included-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.included-wrap > div { overflow: hidden; }
+
+.subservice.open .included-wrap { grid-template-rows: 1fr; }
+
+.included-wrap .sub-grid { padding-top: 1.4rem; }
+
 /* ---------------- Ticker ---------------- */
 
 .ticker {

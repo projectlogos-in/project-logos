@@ -87,6 +87,55 @@ document.querySelectorAll(".model .stage").forEach((stage) => {
   stage.addEventListener("click", () => stage.classList.toggle("open"));
 });
 
+// Services scrollytelling: chapter observer (triggers instrument animations)
+const chapters = document.querySelectorAll(".chapter");
+if (chapters.length) {
+  const chapObs = new IntersectionObserver(
+    (entries) => entries.forEach((e) => { if (e.isIntersecting) chapObs.unobserve(e.target), e.target.classList.add("in"); }),
+    { threshold: 0.25 }
+  );
+  chapters.forEach((c) => chapObs.observe(c));
+
+  // rail scrollspy
+  const railLinks = document.querySelectorAll(".chapter-rail a");
+  if (railLinks.length) {
+    const spy = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          railLinks.forEach((a) => a.classList.toggle("current", a.getAttribute("href") === "#" + e.target.id));
+        });
+      },
+      { rootMargin: "-40% 0px -50% 0px" }
+    );
+    chapters.forEach((c) => spy.observe(c));
+  }
+
+  // giant letter parallax
+  const letters = document.querySelectorAll(".chapter-letter");
+  if (letters.length && !reduceMotion) {
+    window.addEventListener(
+      "scroll",
+      () => {
+        letters.forEach((el) => {
+          const r = el.parentElement.getBoundingClientRect();
+          el.style.transform = `translateY(${r.top * 0.18}px)`;
+        });
+      },
+      { passive: true }
+    );
+  }
+}
+
+// Collapsible "What's included" toggles
+document.addEventListener("click", (e) => {
+  const t = e.target.closest(".included-toggle");
+  if (!t) return;
+  const card = t.closest(".subservice");
+  const open = card.classList.toggle("open");
+  t.setAttribute("aria-expanded", open ? "true" : "false");
+});
+
 // Case-study filters (work page)
 const filterBar = document.querySelector(".filters");
 if (filterBar) {
