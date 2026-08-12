@@ -297,6 +297,7 @@ h1, h2, h3, .display {
 }
 
 .hero-montage .m-cap {
+  transition: opacity 0.35s ease;
   position: absolute;
   left: 0.9rem;
   bottom: 1rem;
@@ -309,6 +310,8 @@ h1, h2, h3, .display {
   padding: 0.35rem 0.7rem;
   max-width: 85%;
 }
+
+.hero-montage .m-cap.fading { opacity: 0; }
 
 .hero-montage::after {
   content: "";

@@ -47,19 +47,27 @@ if (montage) {
     else if (s.gallery) { montage.dataset.gallery = s.gallery; montage.dataset.index = s.index || 0; }
   };
 
-  const show = (i) => {
+  let capTimer = null;
+  const FADE = 1100; // must match .m-layer opacity transition
+
+  const show = (i, instant) => {
     const s = slides[i];
     const back = 1 - front;
     layers[back].src = s.src;
     layers[back].classList.add("active");
     layers[front].classList.remove("active");
     front = back;
-    cap.textContent = s.cap;
-    applyTargets(s);
+    // caption and click target follow the image, so the label never
+    // contradicts the frame that is still crossfading underneath it
+    clearTimeout(capTimer);
+    const settle = () => { cap.textContent = s.cap; cap.classList.remove("fading"); applyTargets(s); };
+    if (instant) return settle();
+    cap.classList.add("fading");
+    capTimer = setTimeout(settle, FADE);
   };
 
   slides.forEach((s) => { const im = new Image(); im.src = s.src; });
-  show(0);
+  show(0, true);
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     montage.classList.add("playing");
     setInterval(() => { cur = (cur + 1) % slides.length; show(cur); }, 4600);
