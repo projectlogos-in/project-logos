@@ -1728,7 +1728,7 @@ strong.mark {
 .reveal.in strong.mark { background-size: 100% 42%; }
 
 [data-theme="light"] strong.mark {
-  background-image: linear-gradient(120deg, rgba(214, 67, 31, 0.26), rgba(214, 67, 31, 0.12));
+  background-image: linear-gradient(120deg, rgba(179, 53, 26, 0.24), rgba(179, 53, 26, 0.11));
 }
 
 .gap-ornament {
@@ -2136,10 +2136,12 @@ strong.mark {
   --paper-shade: #E3DBC6;
   --ink: #1B1812;
   --ink-soft: #3E382C;
-  --ink-mute: #6E6754;
-  --indigo: #D6431F;
-  --gold: #8A7440;
-  --gold-bright: #A08A4E;
+  /* muted lifted from #6E6754 (5.0:1) to clear AA comfortably at small sizes */
+  --ink-mute: #57503F;
+  /* signal darkened from #D6431F (4.0:1 — failed AA on cream) to 5.5:1 */
+  --indigo: #B3351A;
+  --gold: #7A6636;
+  --gold-bright: #8F7742;
   --line: #D9D1BC;
 
   --shadow-sm: 0 1px 2px rgba(40, 32, 12, 0.06), 0 5px 16px rgba(40, 32, 12, 0.07);
@@ -2171,7 +2173,26 @@ strong.mark {
 
 [data-theme="light"] .chapter-letter { -webkit-text-stroke: 1.5px rgba(27, 24, 18, 0.09); }
 
-[data-theme="light"] .btn { color: #131210; }
+/* light mode: darker ramp so cream text clears AA across the whole gradient
+   (the stock #FF6B48 top gave only 2.6:1) */
+[data-theme="light"] .btn {
+  color: #FBF8F0;
+  background: linear-gradient(180deg, #C43D1E, #B3351A);
+  box-shadow: 0 2px 8px rgba(179, 53, 26, 0.22), 0 12px 30px rgba(179, 53, 26, 0.16);
+}
+
+[data-theme="light"] .btn:hover {
+  background: linear-gradient(180deg, #CF4522, #BC3A1D);
+  box-shadow: 0 4px 12px rgba(179, 53, 26, 0.28), 0 20px 44px rgba(179, 53, 26, 0.2);
+}
+
+[data-theme="light"] .btn.ghost { background: transparent; box-shadow: none; }
+[data-theme="light"] .btn.ghost:hover { background: transparent; box-shadow: none; }
+[data-theme="light"] .nav .cta { color: #FBF8F0; }
+[data-theme="light"] .filters button.on,
+[data-theme="light"] .jx-chips button.on { color: #FBF8F0; }
+/* large statement lines: mid-tone was washed out at display size on cream */
+[data-theme="light"] .gap-line { color: var(--ink-soft); }
 [data-theme="light"] .btn.ghost { color: var(--ink); border-color: rgba(27, 24, 18, 0.4); }
 
 [data-theme="light"] .hero {
@@ -2194,8 +2215,8 @@ strong.mark {
 [data-theme="light"] .chapter-art svg [fill="#1B1915"] { fill: #FBF7EC; }
 [data-theme="light"] .chapter-art svg text[fill="#928C7F"] { fill: #6E6754; }
 [data-theme="light"] .chapter-art svg text[fill="#E8D5A0"] { fill: #8A7440; }
-[data-theme="light"] .chapter-art svg text[fill="#FF5B3A"] { fill: #D6431F; }
-[data-theme="light"] .chapter-art svg [stroke="#FF5B3A"] { stroke: #E04A24; }
+[data-theme="light"] .chapter-art svg text[fill="#FF5B3A"] { fill: #B3351A; }
+[data-theme="light"] .chapter-art svg [stroke="#FF5B3A"] { stroke: #C43D1E; }
 
 /* ---------------- Reveal animation ---------------- */
 
