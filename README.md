@@ -52,9 +52,8 @@ engine (`js/media.js`) drives three modes:
   `pdftoppm -png -r 60 -f 1 -l 12` then JPEG-compressed at 1000px. To extend, render
   more pages and grow the `DOCS.handbook.pages` array in `js/media.js`.
   Report covers open in the same reader as single-page docs.
-- **Image lightbox** — galleries defined in `js/media.js` (`GALLERIES`): dashboards
-  and design/stills. Some gallery items are placeholders (design-system screenshots,
-  handbook art) until real photography — Md Meharban's — is added.
+- **Image lightbox** — galleries defined in `js/media.js` (`GALLERIES`): dashboards,
+  design/stills, and five real field-production categories (see below).
 
 Wiring is declarative: `data-video="<yt-id>"`, `data-reader="<doc-key>"
 data-page="<n>"`, `data-gallery="<key>" data-index="<n>"` on any element.
@@ -92,6 +91,45 @@ reviewed articles linked by DOI (Social Science & Medicine 2026; Sexual and
 Reproductive Health Matters 2021). Surfaced on: work (3 shelf cases), studio
 (method-desk artifact row + enriched bio), home (2 publication covers),
 services (peer-review proof line in Chapter A).
+
+## Field production imagery (categorical, not individual)
+
+`assets/field/` holds 22 real production stills sourced from
+`Project Logos/Work Examples/Nous Website/` (Photos + Videos), curated and
+resized (`sips`, 1600px, JPEG q82). By design, everything here is presented as
+**organisational work** — captioned by subject/category, never attributed to
+a named team member — per an explicit instruction that work should represent
+the studio and its team, not individual identity.
+
+- **doc-01..05** — Documentary & reportage (public assemblies, vigils, a
+  festival crowd). Curated to exclude close-up injury/medical-distress shots
+  and ambiguous disaster wreckage out of respect for subjects.
+- **env-01..02** — Environment & climate (drought-cracked farmland, livestock
+  on a parched floodplain).
+- **port-01..04** — Portraits & community (field interview subject, riverside
+  ritual, rural classroom, village group portrait).
+- **camp-01..07** — Commissioned & campaign (a distinct lifestyle/narrative
+  shoot: desert location, fire performance, tea-estate campaign, studio
+  movement study, night exterior, period production still).
+- **bcast-aj-01/02, bcast-bi-01/03, bcast-if-01** — Broadcast commissions:
+  single frames extracted via `ffmpeg -frames:v 1` from real ~7s promo clips
+  for Al Jazeera Newsfeed, Business Insider (Risky Business) and Insider Food
+  (Big Batches) — proof the production team delivers to international
+  broadcast standard. One extracted frame (a person scavenging at a landfill,
+  Business Insider) was dropped for tone.
+
+Registered as five named galleries in `js/media.js`
+(`field-documentary`, `field-environment`, `field-portraits`, `field-campaign`,
+`field-broadcast`) so the lightbox can page through a full category.
+
+Surfaced on: **home** (`#design`, retitled "Field Production" — a category
+grid replacing the old individually-flavoured "Design & Stills"/"Published
+photography" framing), **services.html** Chapter C (a proof strip after the
+AI-leverage block), **work.html** (new shelf case "Broadcast & Field
+Production", 14 engagements total). The previous studio.html section crediting
+one principal's personal bylines was removed — his bio keeps a factual
+credentials/masthead strip (normal for a team-bio page), but the actual
+imagery now lives in the organisation-level galleries above.
 
 ## Artifact imagery
 

@@ -24,6 +24,39 @@
   };
 
   const GALLERIES = {
+    "field-documentary": [
+      { src: "assets/field/doc-01.jpg", cap: "Documentary & reportage — public demonstration, North India" },
+      { src: "assets/field/doc-02.jpg", cap: "Documentary & reportage — street assembly" },
+      { src: "assets/field/doc-03.jpg", cap: "Documentary & reportage — community rally" },
+      { src: "assets/field/doc-04.jpg", cap: "Documentary & reportage — candlelight vigil" },
+      { src: "assets/field/doc-05.jpg", cap: "Documentary & reportage — festival crowd" },
+    ],
+    "field-environment": [
+      { src: "assets/field/env-01.jpg", cap: "Environment & climate — drought-cracked farmland" },
+      { src: "assets/field/env-02.jpg", cap: "Environment & climate — livestock on parched floodplain, city skyline behind" },
+    ],
+    "field-portraits": [
+      { src: "assets/field/port-01.jpg", cap: "Portraits & community — field interview subject" },
+      { src: "assets/field/port-02.jpg", cap: "Portraits & community — riverside evening ritual" },
+      { src: "assets/field/port-03.jpg", cap: "Portraits & community — classroom, rural school" },
+      { src: "assets/field/port-04.jpg", cap: "Portraits & community — village group portrait" },
+    ],
+    "field-campaign": [
+      { src: "assets/field/camp-01.jpg", cap: "Commissioned & campaign — location shoot, desert ruins" },
+      { src: "assets/field/camp-02.jpg", cap: "Commissioned & campaign — cultural performance, firelight" },
+      { src: "assets/field/camp-03.jpg", cap: "Commissioned & campaign — lifestyle shoot, tea estate" },
+      { src: "assets/field/camp-04.jpg", cap: "Commissioned & campaign — lifestyle shoot, tea estate" },
+      { src: "assets/field/camp-05.jpg", cap: "Commissioned & campaign — studio movement study" },
+      { src: "assets/field/camp-06.jpg", cap: "Commissioned & campaign — night exterior, narrative production" },
+      { src: "assets/field/camp-07.jpg", cap: "Commissioned & campaign — period production still" },
+    ],
+    "field-broadcast": [
+      { src: "assets/field/bcast-aj-01.jpg", cap: "Broadcast commission — Al Jazeera Newsfeed" },
+      { src: "assets/field/bcast-aj-02.jpg", cap: "Broadcast commission — Al Jazeera Newsfeed" },
+      { src: "assets/field/bcast-bi-01.jpg", cap: "Broadcast commission — Business Insider, Risky Business" },
+      { src: "assets/field/bcast-bi-03.jpg", cap: "Broadcast commission — Business Insider, Risky Business" },
+      { src: "assets/field/bcast-if-01.jpg", cap: "Broadcast commission — Insider Food, Big Batches" },
+    ],
     dashboards: [
       { src: "assets/work/jem-tracker.png", cap: "Public incident tracker — 1,828 source-linked cases, mapped and filterable" },
       { src: "assets/work/cims-dashboard.png", cap: "Budget simulation dashboard — four fundable tiers for a research-centre build" },

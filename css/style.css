@@ -1197,69 +1197,6 @@ section { padding: var(--section) 0; }
   white-space: nowrap;
 }
 
-/* ---------------- Published credits (photojournalism) ---------------- */
-
-.credit-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: clamp(1rem, 2vw, 1.4rem);
-}
-
-@media (max-width: 780px) { .credit-grid { grid-template-columns: 1fr; } }
-
-.credit-card {
-  display: block;
-  position: relative;
-  border: 1px solid var(--line);
-  background: linear-gradient(180deg, var(--paper-shade), var(--paper-deep));
-  padding: 1.5rem 1.6rem 1.4rem;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s, border-color 0.3s;
-}
-
-.credit-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: rgba(255, 91, 58, 0.5); }
-
-[data-theme="light"] .credit-card:hover { border-color: rgba(179, 53, 26, 0.5); }
-
-.credit-masthead {
-  font-family: var(--font-serif);
-  font-size: 0.86rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: var(--indigo);
-  display: block;
-  margin-bottom: 0.6rem;
-}
-
-.credit-card h3 {
-  font-family: var(--font-text);
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.4;
-  color: var(--ink);
-  letter-spacing: 0;
-  margin-bottom: 0.5rem;
-}
-
-.credit-card .credit-role {
-  font-family: var(--font-mono);
-  font-size: 0.66rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-}
-
-.credit-card::after {
-  content: "↗";
-  position: absolute;
-  top: 1.3rem; right: 1.4rem;
-  color: var(--ink-mute);
-  font-size: 0.85rem;
-  transition: color 0.25s, transform 0.25s;
-}
-
-.credit-card:hover::after { color: var(--indigo); transform: translate(2px, -2px); }
-
 /* publication credit strip */
 .mastheads {
   display: flex;
