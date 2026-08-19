@@ -23,6 +23,14 @@
     "education-2026": { title: "Household education survey — Jamia Nagar, Delhi (Jan 2026)", pages: ["assets/abid/education-1.jpg"] },
   };
 
+  const CLIPS = {
+    "bcast-aj-01": { src: "assets/field/bcast-aj-01.mp4", poster: "assets/field/bcast-aj-01.jpg", cap: "Broadcast commission — Al Jazeera Newsfeed" },
+    "bcast-aj-02": { src: "assets/field/bcast-aj-02.mp4", poster: "assets/field/bcast-aj-02.jpg", cap: "Broadcast commission — Al Jazeera Newsfeed" },
+    "bcast-bi-01": { src: "assets/field/bcast-bi-01.mp4", poster: "assets/field/bcast-bi-01.jpg", cap: "Broadcast commission — Business Insider, Risky Business" },
+    "bcast-bi-03": { src: "assets/field/bcast-bi-03.mp4", poster: "assets/field/bcast-bi-03.jpg", cap: "Broadcast commission — Business Insider, Risky Business" },
+    "bcast-if-01": { src: "assets/field/bcast-if-01.mp4", poster: "assets/field/bcast-if-01.jpg", cap: "Broadcast commission — Insider Food, Big Batches" },
+  };
+
   const GALLERIES = {
     "field-documentary": [
       { src: "assets/field/doc-01.jpg", cap: "Documentary & reportage — public demonstration, North India" },
@@ -49,13 +57,6 @@
       { src: "assets/field/camp-05.jpg", cap: "Commissioned & campaign — studio movement study" },
       { src: "assets/field/camp-06.jpg", cap: "Commissioned & campaign — night exterior, narrative production" },
       { src: "assets/field/camp-07.jpg", cap: "Commissioned & campaign — period production still" },
-    ],
-    "field-broadcast": [
-      { src: "assets/field/bcast-aj-01.jpg", cap: "Broadcast commission — Al Jazeera Newsfeed" },
-      { src: "assets/field/bcast-aj-02.jpg", cap: "Broadcast commission — Al Jazeera Newsfeed" },
-      { src: "assets/field/bcast-bi-01.jpg", cap: "Broadcast commission — Business Insider, Risky Business" },
-      { src: "assets/field/bcast-bi-03.jpg", cap: "Broadcast commission — Business Insider, Risky Business" },
-      { src: "assets/field/bcast-if-01.jpg", cap: "Broadcast commission — Insider Food, Big Batches" },
     ],
     dashboards: [
       { src: "assets/work/jem-tracker.png", cap: "Public incident tracker — 1,828 source-linked cases, mapped and filterable" },
@@ -111,6 +112,18 @@
       f.title = items[index].cap || title || "Video";
       wrap.appendChild(f);
       stage.appendChild(wrap);
+    } else if (mode === "clip") {
+      const wrap = document.createElement("div");
+      wrap.className = "plx-video";
+      const vid = document.createElement("video");
+      vid.src = items[index].src;
+      vid.poster = items[index].poster || "";
+      vid.controls = true;
+      vid.autoplay = true;
+      vid.playsInline = true;
+      vid.setAttribute("aria-label", items[index].cap || title || "Video");
+      wrap.appendChild(vid);
+      stage.appendChild(wrap);
     } else {
       const img = document.createElement("img");
       img.src = items[index].src;
@@ -131,7 +144,7 @@
     document.body.style.overflow = "hidden";
     render();
     // preload neighbours for readers/galleries
-    if (mode !== "video") {
+    if (mode !== "video" && mode !== "clip") {
       [index - 1, index + 1].forEach((i) => {
         if (items[i]) new Image().src = items[i].src;
       });
@@ -168,6 +181,14 @@
     if (v) {
       e.preventDefault();
       open("video", [{ id: v.dataset.video, cap: v.dataset.title || "" }], 0, v.dataset.title || "");
+      return;
+    }
+    const c = e.target.closest("[data-clip]");
+    if (c) {
+      e.preventDefault();
+      const clip = CLIPS[c.dataset.clip];
+      if (!clip) return;
+      open("clip", [clip], 0, clip.cap || "");
       return;
     }
     const r = e.target.closest("[data-reader]");

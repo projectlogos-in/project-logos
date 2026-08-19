@@ -40,11 +40,20 @@ without adopting the client's own framing or terminology.
 ## Native media players (homepage portfolio)
 
 The homepage is portfolio-first: five rails, each with a native player. One overlay
-engine (`js/media.js`) drives three modes:
+engine (`js/media.js`) drives four modes:
 
 - **Video** — YouTube embeds (youtube-nocookie, autoplay-on-open) of real published
-  films from the Nous Network channel (`youtube.com/@nousnetwork`); 10 real video IDs
-  and titles pulled via oEmbed. Thumbnails load from `i.ytimg.com`.
+  films from the Nous Network channel (`youtube.com/@nousnetwork`); 15 real video IDs
+  and titles (interviews, explainers and five long-form documentaries — Hashimpura,
+  Invisible Bihar, Dissent on Trial, "Allah Will Give Us Justice", What Happened on
+  December 15, 2019) pulled via oEmbed/channel lookup. Thumbnails load from
+  `i.ytimg.com`. Films too large to self-host in a static-site repo (25–160MB source
+  files) are embedded this way rather than committed.
+- **Clip** — self-hosted `<video>` playback for short broadcast-commission teasers.
+  Powered by `assets/field/bcast-*.mp4` — the same 5 clips whose stills are used
+  elsewhere, transcoded from the original ~61MB combined source down to ~8.6MB
+  (H.264, scaled to max 1280px, CRF 26, faststart) so they can live in the repo.
+  Registered in `js/media.js` (`CLIPS`), wired via `data-clip="<key>"`.
 - **Reader** — paged publication reader (prev/next buttons, arrow keys, page counter).
   Powered by page images in `assets/handbook/` — the first 12 pages of the ASU
   "Your Muslim Neighbor" handbook rendered from
@@ -55,8 +64,17 @@ engine (`js/media.js`) drives three modes:
 - **Image lightbox** — galleries defined in `js/media.js` (`GALLERIES`): dashboards,
   design/stills, and five real field-production categories (see below).
 
-Wiring is declarative: `data-video="<yt-id>"`, `data-reader="<doc-key>"
-data-page="<n>"`, `data-gallery="<key>" data-index="<n>"` on any element.
+Wiring is declarative: `data-video="<yt-id>"`, `data-clip="<clip-key>"`,
+`data-reader="<doc-key>" data-page="<n>"`, `data-gallery="<key>" data-index="<n>"`
+on any element.
+
+The four largest source films from the Nous Network archive (156MB, 139MB, 86MB and
+61MB — "What Happened on December 15, 2019", "Rooh Afza: A Summer Story", "Dissent
+on Trial", and "Allah Will Give Us Justice") are represented by YouTube embeds of the
+real published films rather than self-hosted, since they're already live on the
+organisation's own channel and too large to reasonably commit to a static-site repo.
+"Rooh Afza" was already embedded; the other three (plus Hashimpura and Invisible
+Bihar) were added to the homepage Documentaries &amp; Explainers rail.
 
 ## Theming
 
